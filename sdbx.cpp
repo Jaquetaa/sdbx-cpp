@@ -182,10 +182,17 @@ void showShadowBoxInstructions(int round, bool playerIsAttacker) {
     cout << "========================= Ronda " << round << " =========================\n";
     setColor(15,0);
     
-    if (playerIsAttacker)
-        cout << "";
-    else
-        cout << "";
+if (playerIsAttacker) {
+    setColor(3, 0);
+    cout << "?) ";
+    setColor(15, 0);
+    cout << "Como Jogar?\n\n";
+} else {
+    setColor(3, 0);
+    cout << "?) ";
+    setColor(15, 0);
+    cout << "";
+}
     
     setColor(9,0);
     cout << "Ataques disponíveis: ";
@@ -193,7 +200,9 @@ void showShadowBoxInstructions(int round, bool playerIsAttacker) {
             if (isAvailable[i])
             setColor(3,0); cout << "\n- "; setColor(15,0); cout << moveToWord(allMoves[i]);
     	}
-    	cout << "\n";
+            cout << "\n";
+        	setColor(9,0); cout << "\n?) "; setColor(15,0); cout << "Como Jogar?";
+            cout << "\n";
 }
 
 //--------------------------------------------------------------------
@@ -313,7 +322,7 @@ bool playThreeRoundGame() {
         char attackerMove, defenderMove;
         
         if (playerIsAttacker) {
-            cout << "";
+        cout << "";
 			setColor(9,0);
             cout << "Ataques disponíveis: ";
             for (int i = 0; i < 4; i++) {
@@ -321,19 +330,23 @@ bool playThreeRoundGame() {
              setColor(3,0); cout << "\n- "; setColor(15,0); cout << moveToWord(allMoves[i]);
             }
             cout << "\n";
+        	setColor(9,0); cout << "\n?) "; setColor(15,0); cout << "Como Jogar?";
+            cout << "\n";
             attackerMove = getMoveFromUser(true, round, playerIsAttacker);
 
             
             defenderMove = getRandomAvailableMoveForComputer();
             setColor(11,0); cout << "Defesa (Computador): "; setColor(15,0); cout << moveToWord(defenderMove) << "\n";
         } else {
-            cout << "";
+        cout << "";
             setColor(9,0);
             cout << "Ataques disponíveis: ";
             for (int i = 0; i < 4; i++) {
                 if (isAvailable[i])
             setColor(3,0); cout << "\n- "; setColor(15,0); cout << moveToWord(allMoves[i]);
             }
+            cout << "\n";
+        	setColor(9,0); cout << "\n?) "; setColor(15,0); cout << "Como Jogar?";
             cout << "\n";
             // Primeiro, o jogador defende
             defenderMove = getMoveFromUser(false, round, playerIsAttacker);

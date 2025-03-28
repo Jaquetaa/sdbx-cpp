@@ -9,11 +9,6 @@ void setCorTexto(int corTexto, int corFundo) {
     SetConsoleTextAttribute(hConsole, corFundo * 16 + corTexto);
 }
 
-// ?? Fun??o para limpar a tela
-void limparTela() {
-    system("cls");
-}
-
 // ?? Fun??o para pausar o processamento
 void pausar() {
     system("pause");  // Pressione qualquer tecla para continuar...
@@ -21,8 +16,6 @@ void pausar() {
 
 // ?? Fun??o para mostrar cores dispon?veis
 void mostrarCores() {
-    limparTela();
-    cout << "Exemplo de cores:\n\n";
 
     for (int fundo = 0; fundo < 8; fundo++) {
         for (int texto = 0; texto < 16; texto++) {
@@ -37,14 +30,6 @@ void mostrarCores() {
 }
 
 int main() {
-    limparTela(); // Limpa a tela
-    setCorTexto(10, 0); // Verde no fundo preto
-    cout << "Texto verde no fundo preto\n";
-
-    setCorTexto(4, 7); // Vermelho no fundo branco
-    cout << "Texto vermelho no fundo branco\n";
-
-    pausar(); // Pausa o processamento
 
     mostrarCores(); // Mostra todas as cores dispon?veis
 pausar();
